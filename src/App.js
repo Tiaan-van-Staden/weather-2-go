@@ -4,8 +4,17 @@ import SideButtons from "./components/SideButtons";
 import Inputs from "./components/Inputs";
 import TimeNlocation from "./components/TimeNlocation";
 import TempDetails from "./components/TempDetails";
+import Forecast from "./components/Forecast";
+import getFormattedWeatherData from "./services/weatherSevices";
 
 function App() {
+  const fetchWeather = async () => {
+    const data = await getFormattedWeatherData({ q: "london" }); //Here I can enter either the city or the coords
+    console.log(data);
+  };
+
+  fetchWeather();
+
   return (
     <div className="flex">
       <div className="w-1/6 p-4">hi</div>
@@ -24,6 +33,9 @@ function App() {
             <Inputs />
             <TimeNlocation />
             <TempDetails />
+
+            <Forecast title="hourly forecast" />
+            {/* <Forecast title="daily forecast" /> */}
           </div>
 
           <div className="p-4"></div>
