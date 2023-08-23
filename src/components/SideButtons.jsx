@@ -28,7 +28,7 @@ function SideButtons() {
         <div className='space-y-4'>
           {places.map((place) => (
             <div key={place.id}>
-              <button className='text-black font-semibold py-2 px-4 rounded'>
+              <button className=' text-black py-2 px-4'>
                 <span>{place.title}</span>
               </button>
             </div>

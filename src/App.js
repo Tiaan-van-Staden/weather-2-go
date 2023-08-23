@@ -2,22 +2,37 @@ import './App.css';
 //import UilReact from '@iconscout/react-unicons/icons/uil-react';
 import SideButtons from './components/SideButtons';
 import Inputs from './components/Inputs';
+import TimeNlocation from './components/TimeNlocation';
+import TempDetails from './components/TempDetails';
 
 function App() {
   return (
-    <div className=" flex">
-      <div className="w-1/3 p-4">
-        
+    <div className="flex">
+      <div className="w-1/6 p-4">
+        hi
       </div>
-      <div className="w-3/5 p-4">
-        <div className=' mt-4 py-5 bg-gradient-to-br from-slate-900 to-slate-800 shadow-xl shadow-gray-400'>
-          <div className="w-1/4 p-4 text-center">
-            <img src="retrologo.jpeg" alt="Retro logo" className="mx-10"/>
+
+      <div className="w-4/6 p-4">
+
+        <div className='flex flex-col items-center py-5 bg-gray-900 shadow-xl shadow-gray-400'>
+          <div className="p-4">
+            <img src="image_2023-08-23_152135650.png" alt="Retro logo" className="box-content h-32 w-60"/>
           </div>
-          <Inputs/>
+
+          <div className='p-4'>
+            <Inputs/>
+            <TimeNlocation/>
+            <TempDetails/>
+          </div>
+
+          <div className='p-4'>
+            
+          </div>
         </div>
+
       </div>
-      <div className="w-1/5 p-6">
+
+      <div className="w-1/6 p-4">
         <SideButtons/>
       </div>
     </div>

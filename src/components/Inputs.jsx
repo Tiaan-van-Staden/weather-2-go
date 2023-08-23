@@ -23,12 +23,14 @@ function Inputs() {
         <button 
           name='metric' 
           className='text-xl text-white font-light'
-        >°C</button>
-        <p className='text-xl text-white font-light'>|</p>
+        >°C 
+        </button>
+        <p className='text-xl text-white mx-2 font-light'>|</p>
         <button 
           name='imperial' 
           className='text-xl text-white font-light'
-        >°F</button>
+        >°F
+        </button>
       </div>
     </div>
   )
