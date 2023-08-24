@@ -6,7 +6,7 @@ import TimeNlocation from "./components/TimeNlocation";
 import TempDetails from "./components/TempDetails";
 import Forecast from "./components/Forecast";
 import getFormattedWeatherData from "./services/weatherSevices";
-import getWeatherData from "./services/weatherSevices";
+//import getWeatherData from "./services/weatherSevices";
 
 function App() {
   const fetchWeather = async () => {
