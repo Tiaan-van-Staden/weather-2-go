@@ -1,8 +1,7 @@
-const API_KEY = "7d49be4496f6da010a40b62bee36bf2f";
-const BASE_URL = "https://api.openweathermap.org/data/2.5";
+import { DateTime } from "luxon";
 
-// https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-// https://api.openweathermap.org/data/2.5/weather?q={tokyo}&appid={7d49be4496f6da010a40b62bee36bf2f}
+
+const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
 const getWeatherData = (infoType, searhParams) => {
   const url = new URL(BASE_URL + "/" + infoType);
@@ -43,10 +42,10 @@ const formatCurrentWeather = (data) => {
   };
 };
 
-const getFormattedWeatherData = async (searhParams) => {
+const getFormattedWeatherData = async (searchParams) => {
   const formattedCurrentWeather = await getWeatherData(
     "weather",
-    searhParams
+    searchParams
   ).then(formatCurrentWeather);
 
   return formattedCurrentWeather;
