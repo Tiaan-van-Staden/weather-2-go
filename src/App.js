@@ -80,7 +80,7 @@ function App() {
         </div>
       </div>
 
-      <div className="w-1/6 p-4">
+      <div className="w-1/6 p-4 text-center relative">
         <SideButtons setQuery={setQuery} />
       </div>
 
@@ -88,26 +88,5 @@ function App() {
     </div>
   );
 }
-
-// function App() {
-//   return (
-//     <div className='flex mx-auto mt-4 py-5 px-36'>
-//       {/* Left Column */}
-//       <div className='w-1/4 pr-4'>
-//         {/* Content for the left column */}
-//       </div>
-
-//       {/* Center Column */}
-//       <div className='flex-1 bg-gradient-to-br from-slate-900 to-slate-800 h-fit shadow-xl shadow-gray-400 px-4'>
-//         {/* Content for the center column (gray block) */}
-//       </div>
-
-//       {/* Right Column */}
-//       <div className='w-1/4 ml-4'>
-//         <SideButtons />
-//       </div>
-//     </div>
-//   );
-// }
 
 export default App;
