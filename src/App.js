@@ -45,15 +45,23 @@ function App() {
   };
 
   return (
-    <div className="flex">
+    <div
+      className="flex"
+      style={{
+        backgroundImage:
+          "url(abstract-optical-laser-horizontal-background.jpg)",
+      }}
+    >
       <div className="w-1/6 p-4 text-center relative">
-        <div
-          className={`w-44 h-44 rounded-full absolute bottom-0 left-1/2 transform -translate-x-1/2 ${predictBackground()}`}
-        ></div>
+        <div className="flex flex-col items-center py-5 bg-gray-900 shadow-xl shadow-gray-400 h-full">
+          <div
+            className={` w-44 h-44 rounded-full absolute bottom-0 left-1/2 transform -translate-x-1/2 ${predictBackground()}`}
+          ></div>
+        </div>
       </div>
 
       <div className="w-4/6 p-4">
-        <div className="flex flex-col items-center py-5 bg-gray-900 shadow-xl shadow-gray-400">
+        <div className="flex flex-col items-center py-5 bg-gray-900 shadow-xl shadow-gray-400 h-full">
           <div className="p-4">
             <img
               src="image_2023-08-23_152135650.png"
@@ -71,7 +79,7 @@ function App() {
                 <TempDetails weather={weather} />
 
                 <Forecast title="hourly forecast" items={weather.hourly} />
-                {/* <Forecast title="daily forecast" items={weather.daily}/> */}
+                <Forecast title="daily forecast" items={weather.daily} />
               </div>
             )}
           </div>
@@ -81,10 +89,16 @@ function App() {
       </div>
 
       <div className="w-1/6 p-4 text-center relative">
-        <SideButtons setQuery={setQuery} />
+        <div className="flex flex-col items-center py-5 bg-gray-900 shadow-xl shadow-gray-400 h-full">
+          <p className="text-white text-l font-light">
+            Make a choice of our carefully selected tourist locations based on
+            the areas surrounding Retro Rabbit
+          </p>
+          <SideButtons setQuery={setQuery} />
+        </div>
       </div>
 
-      <ToastContainer autoClose={5000} theme="dark" newestOnTop={true} />
+      <ToastContainer autoClose={1500} theme="dark" newestOnTop={true} />
     </div>
   );
 }
