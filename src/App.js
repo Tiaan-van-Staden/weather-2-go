@@ -8,6 +8,8 @@ import Forecast from "./components/Forecast";
 import getFormattedWeatherData from "./services/weatherSevices";
 import { useEffect, useState } from "react";
 //import getWeatherData from "./services/weatherSevices";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [query, setQuery] = useState({ q: "gauteng" }); //default
@@ -16,8 +18,17 @@ function App() {
 
   useEffect(() => {
     const fetchWeather = async () => {
+      const message = query.q ? query.q : "current location";
+
+      toast.info("Fetching weather for " + message);
+
       await getFormattedWeatherData({ ...query, units }).then((data) => {
         //Here I can enter either the city or the coords
+
+        toast.success(
+          `Successfully fetched weather date for ${data.name}, ${data.country}`
+        );
+
         setWeather(data);
       });
     };
@@ -25,9 +36,21 @@ function App() {
     fetchWeather();
   }, [query, units]);
 
+  const predictBackground = () => {
+    if (!weather) return "bg-green-500";
+    const threshold = units === "metric" ? 20 : 60;
+    if (weather.temp <= threshold) return "bg-green-500";
+
+    return "bg-red-500";
+  };
+
   return (
     <div className="flex">
-      <div className="w-1/6 p-4">hi</div>
+      <div className="w-1/6 p-4 text-center relative">
+        <div
+          className={`w-44 h-44 rounded-full absolute bottom-0 left-1/2 transform -translate-x-1/2 ${predictBackground()}`}
+        ></div>
+      </div>
 
       <div className="w-4/6 p-4">
         <div className="flex flex-col items-center py-5 bg-gray-900 shadow-xl shadow-gray-400">
@@ -40,7 +63,7 @@ function App() {
           </div>
 
           <div className="p-4">
-            <Inputs />
+            <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
 
             {weather && (
               <div>
@@ -58,8 +81,10 @@ function App() {
       </div>
 
       <div className="w-1/6 p-4">
-        <SideButtons />
+        <SideButtons setQuery={setQuery} />
       </div>
+
+      <ToastContainer autoClose={5000} theme="dark" newestOnTop={true} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-function SideButtons() {
+function SideButtons({ setQuery }) {
   const places = [
     {
       id: 1,
@@ -22,13 +22,20 @@ function SideButtons() {
       id: 5,
       title: "KFC East Lynne",
     },
+    {
+      id: 6,
+      title: "Pretoria",
+    },
   ];
 
   return (
     <div className="space-y-4">
       {places.map((place) => (
         <div key={place.id}>
-          <button className=" text-black py-2 px-4">
+          <button
+            className=" text-black py-2 px-4"
+            onClick={() => setQuery({ q: place.title })}
+          >
             <span>{place.title}</span>
           </button>
         </div>
