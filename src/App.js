@@ -6,15 +6,24 @@ import TimeNlocation from "./components/TimeNlocation";
 import TempDetails from "./components/TempDetails";
 import Forecast from "./components/Forecast";
 import getFormattedWeatherData from "./services/weatherSevices";
+import { useEffect, useState } from "react";
 //import getWeatherData from "./services/weatherSevices";
 
 function App() {
-  const fetchWeather = async () => {
-    const data = await getFormattedWeatherData({ q: "london" }); //Here I can enter either the city or the coords
-    console.log(data);
-  };
+  const [query, setQuery] = useState({ q: "gauteng" }); //default
+  const [units, setUnits] = useState("metric");
+  const [weather, setWeather] = useState(null);
 
-  fetchWeather();
+  useEffect(() => {
+    const fetchWeather = async () => {
+      await getFormattedWeatherData({ ...query, units }).then((data) => {
+        //Here I can enter either the city or the coords
+        setWeather(data);
+      });
+    };
+
+    fetchWeather();
+  }, [query, units]);
 
   return (
     <div className="flex">
@@ -32,11 +41,16 @@ function App() {
 
           <div className="p-4">
             <Inputs />
-            <TimeNlocation />
-            <TempDetails />
 
-            <Forecast title="hourly forecast" />
-            {/* <Forecast title="daily forecast" /> */}
+            {weather && (
+              <div>
+                <TimeNlocation weather={weather} />
+                <TempDetails weather={weather} />
+
+                <Forecast title="hourly forecast" items={weather.hourly} />
+                {/* <Forecast title="daily forecast" items={weather.daily}/> */}
+              </div>
+            )}
           </div>
 
           <div className="p-4"></div>
