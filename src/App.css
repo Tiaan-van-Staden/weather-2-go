@@ -36,3 +36,72 @@
     transform: rotate(360deg);
   }
 }
+
+/* Add this CSS to your stylesheet */
+.border-gradient {
+  /* background: linear-gradient(45deg, #ff00cc, #3333ff, #00ffcc); */
+  border-image: linear-gradient(45deg, #08ff31, #73ff00, #0eff8f);
+  border-image-slice: 1;
+  animation: border-gradient-animation 3s linear infinite;
+}
+
+@keyframes border-gradient-animation {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+}
+
+/* Add this CSS to your stylesheet */
+.checkbox-label {
+  cursor: pointer;
+  transition:
+    transform 0.3s,
+    color 0.3s;
+}
+
+.custom-checkbox {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #999;
+  border-radius: 4px;
+  background-color: transparent;
+  position: relative;
+  transition:
+    border-color 0.3s,
+    background-color 0.3s;
+}
+
+input[type="checkbox"]:checked + .custom-checkbox::before {
+  content: "\f00c"; /* FontAwesome checkmark icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #00ffcc; /* Your custom color */
+}
+
+.checkbox-label:hover {
+  transform: translateY(-2px);
+}
+
+.checkbox-label:hover .custom-checkbox {
+  border-color: #00ffcc; /* Your custom color */
+}
+
+.checkbox-label:hover span {
+  color: #00ffcc; /* Your custom color */
+}
