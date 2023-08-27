@@ -1,6 +1,8 @@
 # weather-2-go
 Soon to be a smooth and ez to use weather app built using React.js
 
+________________________________________________
+
 The functionality for this app includes:
 **Navigation pannel underneath logo:**
 - search box that searches on the search button (not enter yet)
