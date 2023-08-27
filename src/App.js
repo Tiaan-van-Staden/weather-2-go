@@ -1,5 +1,4 @@
 import "./App.css";
-//import UilReact from '@iconscout/react-unicons/icons/uil-react';
 import SideButtons from "./components/SideButtons";
 import Inputs from "./components/Inputs";
 import TimeNlocation from "./components/TimeNlocation";
@@ -7,7 +6,6 @@ import TempDetails from "./components/TempDetails";
 import Forecast from "./components/Forecast";
 import getFormattedWeatherData from "./services/weatherSevices";
 import { useEffect, useState } from "react";
-//import getWeatherData from "./services/weatherSevices";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -68,12 +66,12 @@ function App() {
       }}
     >
       <div className="w-3/12 p-4 text-center relative">
-        <div className="flex flex-col items-center py-5 bg-gray-900 shadow-xl shadow-gray-400 h-full">
+        <div className="flex flex-col items-center py-5 bg-gray-900 shadow-xl shadow-gray-800 h-full">
           <p className="text-justify text-white text-lg p-8 mt-4">
             Here you are able to predict the type of day you will have based on
             the weather and 1 crucial question.
             <p className="mt-4">
-              If the output of the spheer or truth returns green, you will be
+              If the output of the spheer of truth returns green, you will be
               blessed, if it returns red, well...
             </p>
           </p>
@@ -104,27 +102,6 @@ function App() {
             </label>
           </div>
 
-          {/* <div className=" mt text-white font-medium p-8 mt-4">
-            <h2>Do you have lunch today?</h2>
-            <label className="inline-flex items-center">
-              <input
-                type="checkbox"
-                className="form-checkbox h-5 w-5 text-blue-600"
-                checked={isYesChecked}
-                onChange={handleYesChange}
-              />
-              <span className="ml-2">Yes haha</span>
-            </label>
-            <label className="inline-flex items-center ml-4">
-              <input
-                type="checkbox"
-                className="form-checkbox h-5 w-5 text-red-600"
-                checked={isNoChecked}
-                onChange={handleNoChange}
-              />
-              <span className="ml-2">No</span>
-            </label>
-          </div> */}
           <div className="p-8">
             <img
               src="image_2023-08-26_125016696.png"
@@ -136,12 +113,12 @@ function App() {
       </div>
 
       <div className="w-6/12 p-4">
-        <div className="flex flex-col items-center py-5 bg-gray-900 shadow-xl shadow-gray-400 h-full">
+        <div className="flex flex-col items-center py-5 bg-gray-900 shadow-xl shadow-gray-800 h-full">
           <div className="p-4">
             <img
               src="image_2023-08-26_175739508.png"
               alt="Retro logo"
-              className="box-content h-28 w-80"
+              className="box-content h-26 w-72"
             />
           </div>
 
@@ -167,7 +144,7 @@ function App() {
         {/* <div className="bg-gray-200 p-2 rounded-md">
           <p>This is some text in a box.</p>
         </div> */}
-        <div className="flex flex-col items-center py-5 bg-gray-900 shadow-xl shadow-gray-400 h-full">
+        <div className="flex flex-col items-center py-5 bg-gray-900 shadow-xl shadow-gray-800 h-full">
           <p className="text-justify text-white text-lg p-8 mt-4">
             Make a choice of our carefully selected tourist locations based on
             the areas surrounding Retro Rabbit

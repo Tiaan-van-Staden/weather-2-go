@@ -70,36 +70,6 @@ const formatForecastWeather = (data) => {
   return { timezone, daily, hourly };
 };
 
-// const formatForecastWeather = (data) => {
-//   let { city, list } = data;
-//   const timezone = data.city.timezone;
-
-//   // Extract daily forecast data
-//   const daily = list
-//     .filter((d, index) => index % 8 === 0) // Get data every 24 hours (index divisible by 8)
-//     .slice(0, 5) // Take the next 5 days
-//     .map((d) => {
-//       return {
-//         title: formatToLocalTime(d.dt, timezone, "ccc"),
-//         temp: d.main.temp,
-//         icon: d.weather[0].icon,
-//       };
-//     });
-
-//   // Extract hourly forecast data
-//   const hourly = list
-//     .slice(0, 5 * 8) // Take the next 5 days of hourly data (8 data points per day)
-//     .map((d) => {
-//       return {
-//         title: formatToLocalTime(d.dt, timezone, "hh:mm a"),
-//         temp: d.main.temp,
-//         icon: d.weather[0].icon,
-//       };
-//     });
-
-//   return { timezone, daily, hourly };
-// };
-
 //to here
 
 const getFormattedWeatherData = async (searchParams) => {
